@@ -15,7 +15,8 @@ with open('..//Python/chansons.tsv', 'r') as file:
 	# Dans la variable dico, on stock le dictionnaire extrait à partir
 	# de notre variable file en lui passant en paramètre le délimiteur \t.
 	dico = csv.DictReader(file, delimiter='\t')
-	# dans la variable to_db, on stock la boucle for qui parse le dictionnaire dico.
+	# dans la variable to_db, on stock la boucle for qui parse le dictionnaire dico
+	# et qui stocke les valeurs des différentes clefs. 
 	to_db = [(i['ID'], i['collection'], i['collection_parent'], i['Titre'], i['Auteur'],
 	 i['Interprete'], i['Date'],i['Content'], i['Link'] ) for i in dico]
 
