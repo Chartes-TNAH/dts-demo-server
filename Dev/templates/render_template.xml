@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- création d'un document xml -->
+<!-- création d'un document xml pour structurer le texte brut -->
 <xml>
    <!-- insertion d'une balise text-->
    <text>
