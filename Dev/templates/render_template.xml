@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- création d'un document xml pour structurer le texte brut -->
 <xml>
-   <!-- insertion d'une balise text-->
+   <!-- insertion d'une balise text -->
    <text>
       <!-- pour chaque objet dans la liste -->
       {% for object in object_list %}
