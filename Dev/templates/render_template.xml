@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<xml>
 <text>
    {% for object in object_list %}
    <chant id="{{ object.ID }}">
@@ -12,5 +13,5 @@
       <Link>{{ object.Link }}</Link>
    </chant>
    {% endfor %}
- </text>
- </xml>
+</text>
+</xml>
