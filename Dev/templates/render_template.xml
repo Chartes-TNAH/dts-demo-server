@@ -9,19 +9,19 @@
       <chant id="{{ object.ID }}">
          <!-- création d'une balise 'colleciton' correspondant au champs collection dans la DB -->
          <Collection>{{ object.collection }}</Collection>
-         <!-- création d'une balise 'collection_parent' correspondant au champs collection dans la DB -->
+         <!-- création d'une balise 'collection_parent' correspondant au champs dans la DB -->
          <Collection_parent>{{ object.Collection_parent }}</Collection_parent>
-         <!-- création d'une balise 'titre' correspondant au champs collection dans la DB -->
+         <!-- création d'une balise 'titre' correspondant au champs dans la DB -->
          <Titre>{{ object.Titre }}</Titre>
-         <!-- création d'une balise 'auteur' correspondant au champs collection dans la DB -->
+         <!-- création d'une balise 'auteur' correspondant au champs dans la DB -->
          <Auteur>{{ object.Auteur }}</Auteur>
-         <!-- création d'une balise 'interprete' correspondant au champs collection dans la DB -->
+         <!-- création d'une balise 'interprete' correspondant au champs dans la DB -->
          <Interprete>{{ object.Interprete }}</Interprete>
-         <!-- création d'une balise 'date' correspondant au champs collection dans la DB -->
+         <!-- création d'une balise 'date' correspondant au champs dans la DB -->
          <Date>{{ object.Date }}</Date>
-         <!-- création d'une balise 'content' correspondant au champs collection dans la DB et contenant du texte dans une balise p -->
+         <!-- création d'une balise 'content' correspondant au champs dans la DB et contenant du texte dans une balise p -->
          <Content><p>{{ object.Content }}</p></Content>
-         <!-- création d'une balise 'link' correspondant au champs collection dans la DB -->
+         <!-- création d'une balise 'link' correspondant au champs dans la DB -->
          <Link>{{ object.Link }}</Link>
       </chant>
       {% endfor %}
