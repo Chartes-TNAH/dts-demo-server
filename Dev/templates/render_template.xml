@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<text>
+   {% for object in object_list %}
+   <chant id="{{ object.ID }}">
+      <Collection>{{ object.collection }}</Collection>
+      <Collection_parent>{{ object.Collection_parent }}</Collection_parent>
+      <Titre>{{ object.Titre }}</Titre>
+      <Auteur>{{ object.Auteur }}</Auteur>
+      <Interprete>{{ object.Interprete }}</Interprete>
+      <Date>{{ object.Date }}</Date>
+      <Content><p>{{ object.Content }}</p></Content>
+      <Link>{{ object.Link }}</Link>
+   </chant>
+   {% endfor %}
+ </text>
+ </xml>
