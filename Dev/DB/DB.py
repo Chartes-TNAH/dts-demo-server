@@ -4,7 +4,7 @@ import sqlite3
 
 # On instancie la connection à la base de données chants.bd avec la méthode
 # .connect et on stocke cette création dans la variable connection.
-connection = sqlite3.connect('chants.db')
+connection = sqlite3.connect('chants.sqlite')
 
 # On créé un curseur via la méthode .cursor()
 # on stocke ce curseur dans la variable cursor.

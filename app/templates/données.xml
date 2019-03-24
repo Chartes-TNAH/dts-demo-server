@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      {% for id in chants%}
+      {% for Col in chants%}
+      {% for Collection_parent in chants%}
+      {% for Titre in chants%}
+      {% for Auteur in chants%}
+      {% for Interprete in chants%}
+      {% for Date_creation in chants%}
+      {% for Content in chants%}
+      {% for Link in chants%}
+      <fileDesc xml:id="{{id}}">
+         <titleStmt>
+            <title>{{Titre}}</title>
+         </titleStmt>
+         <publicationStmt>
+            <p></p>
+         </publicationStmt>
+         <sourceDesc>
+            <author>{{Auteur}}</author>
+             <interprete>{{Interprete}}</interprete>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <p>{{Content}}</p>
+      </body>
+  </text>
+</TEI>

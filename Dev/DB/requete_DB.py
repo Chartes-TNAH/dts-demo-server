@@ -1,8 +1,9 @@
 # Importation du module sqlite3
 import sqlite3
+import json
 
 # Connexion à la base de données chants.db avec la méthode .connect()
-conn = sqlite3.connect('chants.db')
+conn = sqlite3.connect('chants.sqlite')
 # Instanciation d'un curseur avec .cursor et stockage
 # du curseur dans la variable c.
 c = conn.cursor()
