@@ -17,10 +17,6 @@ with open('..//Metadata/Chansons.tsv', 'r') as file:
 	to_db = [(i['ID'], i['collection'], i['collection_parent'], i['Titre'], i['Auteur'],
 	 i['Interprete'], i['Date'],i['Content'], i['Link'] ) for i in dico]
 
-with open('..//..//Collection_initiale/1789_Révolution/Carmagnole.txt', 'r') as text:
-    texte = text.read()
-
-
 
 # On insère, via la méthode .execute, les valeurs présente dnas dico dans la table chanson.
 cursor.executemany("INSERT INTO chant_metadata (chant_ID,"
@@ -34,7 +30,8 @@ cursor.executemany("INSERT INTO chant_metadata (chant_ID,"
                    "Link)"
                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", to_db)
 
-cursor.execute("INSERT INTO chants_content('fk_metadata','TEXTE') VALUES (?, ?)", (SELECT chant_ID FROM chant_metadata WHERE Titre='Carmagnole', texte))
+
+#cursor.execute("INSERT INTO chants_content('fk_metadata','TEXTE') VALUES (?, ?)", (SELECT chant_ID FROM chant_metadata WHERE Titre='Carmagnole', texte))
 
 connexion.commit()
 
