@@ -13,7 +13,5 @@ Pour utiliser le projet vous aurez besoin de :
 1. Installer python3
 2. Dédier un environnement virtuel au projet
 3. Cloner / Forker & Cloner le repository
-4. Installer les librairies
-5. (... working progress ...)
-
-
+4. Installer les librairies indiquées dans le fichier requirements.txt
+5. Dans le dossier dtsongs qui contient l'application lancer la commande flask run.
