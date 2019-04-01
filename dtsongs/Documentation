@@ -1,0 +1,92 @@
+Documentation _ API _ DTSongs
+
+L'API DTSongs est pensée comme une base visant à proposer une navigation
+entre les collections, les métadonnées que comportent cette base de données et
+les textes qui la compose.
+
+Cette API est divisée en 3 endpoints :
+  - Collection_endpoint qui permet une navigation macro entre les textes et les collections.
+  - Document_endpoint qui permet de faire des requêtes et d'entrer dans le(s) texte(s) ou partie.
+  - Navigation_endpoint qui va permettre de naviguer entre les collections et ce qui les compose.
+
+Il s’agit donc d’une application web comportant un back end et un middle end.
+Elle fonctionne en local, et est en open access sur GitHub. Cela permet de la
+télécharger en intégralité et de la faire fonctionner via un environnement
+virtuel (nous vous conseillons de la faire tourner sur PyCharm).
+
+Les choix ont été les suivants :
+  - fournir du texte brut et nettoyé pour nourrir la base de données.
+  - le XML a été pensé comme un moyen de stocker les métadonnées dans le teiHeader, et de structurer
+  le fichier texte dans le body en <p> et <l> avec une numérotation automatique des lignes.
+  - la base de données permet de stocker les informations et le texte brut, dans le but de faire
+  des requêtes et de renvoyer du XML (document_endpoint) et du Json (Collection_endpoint & Navigation_endpoint)
+
+Le middle-end est composé de la recherche de base:
+  - par toutes les entrées de la base de données et permet de retourner
+  une liste de texte. L'objectif est de mettre des options pour différents modes
+  d'affichage.
+  - par nom de texte, elle retourne cette fois la métadonnée concernant le texte
+  ou le texte lui-même.
+Il comprend également une recherche par mots:
+  - qui permet d'obtenir les métadonnées des chants dans lesquels se retrouvent
+  ces mots, le nombre d'occurence d'un mot à travers toute la base de données
+Il permet aussi de faire un affichage du texte:
+  - par titre + auteur, ou son ID et retourne le texte en entier ou une partie
+  (un vers, une suite de vers, des vers épars)
+
+Le back-end est composé:
+  - de fichiers texte au format '.txt'. Ces derniers sont nettoyés préalablement de
+  la manière suivante: les refrains et couplets sont rédigés entièrement et ne
+  sont pas signalés de manière écrite dans les textes; les espaces en fin de
+  ligne sont supprimés; de manière générale nous vous invitons à regarder
+  attentivement notre modèle de texte avant des les importer dans la base de
+  données.
+  Ce fichier texte est à la fois un moyen de se déplacer dans les collections,
+  de créer une base de données et de renvoyer une réponse en XML (cela est rendu
+  possible grâce au fichier 'document.xml' qui, appelé grâce à un
+  render_template permet de renvoyer un fichier parser en XML.)
+  - d'une base de données avec deux tables, créée grâce au fichier (create_table_DB.py)
+  et remplie grâce aux métadonnées pour la table chants_metadata; et aux fichiers.txt pour
+  la table chants_content.
+  C'est à partir de cette base de données que ce fera la récupération des données.
+  Les sorties se feront pour le document endpoint en XML, et pour la collection et la
+  navigation endpoint en Json.
+
+L'architecture de l'API est pensée en 2 parties. La première (Collection_initiale) comprend
+tous les fichiers en texte brut organisés selon les sous-collections auxquels ils appartiennent.
+En l'occurence '1789_Révolution', 'Commune' et 'Chants_contre'.
+La seconde partie (API) regroupe tout le code et est divisée ainsi : Metadata, Routes_flask,
+DB_SQLite et CLI. Chaque dossier est composé de différents fichiers.
+
+Voici la descriptions des fichiers contenus dans 'API' tels que vous les trouverez sur GitHub :
+In 'Metadata' : le fichier 'create_tsv.py' est le morceau de code qui permet de transformer
+les métadonnées rentrées à la main en fichier tsv. Ce code n'est en soi pas indispensable car nous aurions pu rentrer directement les métadonnées
+à la main dans un fichier tsv. Cela est vrai pour 5 textes, mais l'objectif était de créer une fonction
+qui serait modifiable et qui permettrait par la suite d'automatiser l'insertion des métadonnées dans
+un fichier tsv à partir d'une requête en SPARQL sur Wikidata. Dans le cadre de l'exercice cela nous
+paraissait un peu compliqué à mettre en place. Est également présent dans ce sous-dossier le fichier
+'Chansons.tsv' qui est le résultat de la fonction précédemment citée.
+Pour l'instant si vous voulez rentrer des métadonnées dans 'Chansons.tsv' merci de vous conformer
+au modèle du code, et de taper dans le terminal PyCharm, une fois vous être assuré
+que vous vous trouvez au bon niveau, la commande suivante :
+$ python3 create_tsv.py
+
+In 'DB_SQLite': le fichier 'creation_DB.py' créé la base de données et les tables. Les fichiers 'insert_DB.py' permet de charger dans la base
+les informations de types métadonnées issues du fichier tsv. Le fichier 'insert_content.py' vous
+permettra d'insérer le contenu texte dans la base de données.
+Toujours dans le terminal PyCharm il faudra dans cet ordre, taper les commandes suivantes :
+$ python3 creation_table_DB.py
+$ python3 insert_DB.py
+$ python3 inser_content.py
+En résultera la création et l'insertion des données dans la base de données sous le nom 'chants.db'
+Toujours dans l'éventualité d'une révision en dehors de ce devoir, nous avons pensé également à faire
+une fonction qui permettra d'insérer d'autres informations dans la base de données, il s'agit du fichier 'insert_user.py'.
+Il est possible de faire des requêtes en ligne de commande en exécutant le script requete_DB.py, il suffit ensuite de suivre les instructions qui s'affiche dans le terminal. Ce script fonctionne avec des requêtes de type SQL. Ex: 'SELECT * FROM chants;'. 
+
+In 'Routes_flask' : un sous-dossier nommé 'templates' contient le fichier 'document.xml'. Ce dernier est
+appelé dans 'app.py' grâce à un render_template, et permet de renvoyer du XML en sortie du
+Document_endpoint. Ce fichier app.py est configuré grâce à des routes pour que les requêtes permettent
+d'afficher en document de sortie du Json.
+Pour cela il suffit de taper dans le terminal PyCharm :
+$ export FLASK_APP=app.py
+$ flask run
