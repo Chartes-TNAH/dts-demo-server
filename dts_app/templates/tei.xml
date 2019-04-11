@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:dts="https://w3id.org/dts/api#">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>{{collection.collection_title}}</title>
+             {% for author in collection.authors -%}
+                <author>{{author.triple_object}}</author>
+             {%- endfor %}
+         </titleStmt>
+      </fileDesc>
+   </teiHeader>
+   <dts:fragment>
+       <text>
+           <body>
+               {% for passage in passages -%}
+                <{{passage.passage_tag}} n="{{passage.passage_order}}">{{passage.passage_value}}</{{passage.passage_tag}}>
+               {%- endfor %}
+            </body>
+       </text>
+   </dts:fragment>
+</TEI>

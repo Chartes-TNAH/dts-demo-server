@@ -1,1 +1,1 @@
-FLASK_APP="dts_app.app:create_app('dev')"
+FLASK_APP="dts_app.app:config_app('dev')"

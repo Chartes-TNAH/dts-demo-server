@@ -1,0 +1,4 @@
+<error statusCode="{{code}}" xmlns="https://w3id.org/dts/api#">
+  <title>{{title}}</title>
+  <description>{{message}}</description>
+</error>

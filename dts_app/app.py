@@ -14,9 +14,11 @@ app = Flask(
     template_folder=templates
 )
 
+# Import Scripts
+from .script import db, create
 
-from .routes import generic
-from .routes import api
+# Import Routes
+from .routes import document
 
 
 def config_app(config_name="test"):
