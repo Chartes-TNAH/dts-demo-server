@@ -18,7 +18,7 @@ app = Flask(
 from .script import db, create
 
 # Import Routes
-from .routes import document
+from .routes import collection_route, document_route, navigation_route, identifier_route
 
 
 def config_app(config_name="test"):

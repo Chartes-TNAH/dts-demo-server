@@ -60,7 +60,7 @@ def load(tsv: click.File):
             collections[main_keys["@id"]] = collection.collection_id
 
             for predicate, value in zip(columns, line):
-                if predicate not in mandatories:
+                if value and predicate not in mandatories:
                     triple = Triple(
                         triple_subject=collection.collection_id,
                         triple_predicate=predicate,

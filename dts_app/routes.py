@@ -1,4 +1,5 @@
-from flask import render_template, request, Response, url_for, jsonify
+from collections import defaultdict
+from flask import render_template, request, Response, url_for, jsonify, redirect
 from .app import app, db
 from .models import Passage, Collection
 
@@ -40,7 +41,7 @@ def json_ld(data):
 
 
 @app.route("/document")
-def document():
+def document_route():
     collection = Collection.get_by_identifier(request.args.get("id"))
 
     if not collection:
@@ -93,11 +94,11 @@ def document():
 
 
 @app.route("/navigation")
-def navigation():
+def navigation_route():
     collection = Collection.get_by_identifier(request.args.get("id"))
 
     if not collection:
-        return json_error(title="Document not found",
+        return json_error(title="Collection not found",
                           message="This collection does not exist in our database.")
 
     if collection.collection_type != "Resource":
@@ -169,6 +170,90 @@ def navigation():
             "dts:citeDepth": 1,
             "dts:level": 1,
             "member": passages,
-            "dts:passage": url_for("document", id=collection.collection_identifier)+"{&ref}{&start}{&end}"
+            "dts:passage": url_for("document_route", id=collection.collection_identifier)+"{&ref}{&start}{&end}"
         }
     )
+
+
+@app.route("/collection")
+def collection_route():
+    collection = Collection.get_by_identifier(request.args.get("id"))
+
+    if not collection and request.args.get("id"):
+        return json_error(title="Collection not found",
+                          message="This collection does not exist in our database.")
+    elif not collection:
+        collection = Collection.query.filter(Collection.collection_parent==None).first()
+
+    if request.args.get("nav", "children") == "children":
+        members = collection.children
+    else:
+        members = [collection.parent]
+
+    dc = defaultdict(list)
+    extended = defaultdict(list)
+
+    for triple in collection.triples:
+        if triple.triple_predicate.startswith("http://purl.org/dc/terms/"):
+            dc[triple.triple_predicate.replace("http://purl.org/dc/terms/", "dc:")].append(triple.triple_object)
+        else:
+            extended[triple.triple_predicate].append(triple.triple_object)
+
+    data = {
+        "@context": {
+            "@vocab": "https://www.w3.org/ns/hydra/core#",
+            "dc": "http://purl.org/dc/terms/",
+            "dts": "https://w3id.org/dts/api#"
+        },
+        "@id": collection.collection_identifier,
+        "@type": collection.collection_type,
+        "totalItems": len(members),
+        "title": collection.collection_title
+    }
+
+    if len(members):
+        data["member"] = [
+            {
+                "@id": member.collection_identifier,
+                "title": member.collection_title,
+                "@type": member.collection_type,
+                "totalItems": member.total_items
+            }
+            for member in members
+        ]
+
+    if dc:
+        data["dts:dublincore"] = dc
+
+    if extended:
+        data["dts:extended"] = extended
+
+    if collection.collection_type == "Resource":
+        data.update({
+            "dts:passage": url_for("document_route", id=collection.collection_identifier),
+            "dts:references": url_for("navigation_route", id=collection.collection_identifier),
+            "dts:citeDepth": 1
+        })
+
+    return json_ld(data)
+
+
+@app.route("/")
+def entry_point():
+    return json_ld({
+      "@context": "/dts/api/contexts/EntryPoint.jsonld",
+      "@id": url_for("entry_point"),
+      "@type": "EntryPoint",
+      "collections": url_for("collection_route"),
+      "documents": url_for("document_route"),
+      "navigation": url_for("navigation_route")
+    })
+
+
+@app.route("/<path:path>")
+def identifier_route(path):
+    collection = Collection.get_by_identifier("/"+path)
+    if not collection:
+        return json_error(title="Collection not found",
+                          message="This collection does not exist in our database.")
+    return redirect(url_for("collection_route", id=collection.collection_identifier))
