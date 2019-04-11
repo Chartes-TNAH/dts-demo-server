@@ -1,0 +1,1 @@
+from dts_app.app import config_app

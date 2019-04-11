@@ -1,51 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="583575b0-6d37-43d3-b80b-c4cd1304d317" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dts-demo-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Collection_Initiale/Chants_contre/Triomphe_Anarchie.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Collection_Initiale/Commune/Internationale.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Collection_Initiale/Commune/LeTempsdesCerises.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Collection_Initiale/Révolution_1789/Carmagnole.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Collection_Initiale/Révolution_1789/Marseillaise.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Dev/Create_tsv/chansons.tsv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Dev/Create_tsv/creatsv.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Dev/DB/DB.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Dev/DB/InsertDB.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Dev/DB/chants.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Dev/DB/requete_DB.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_et_autres_tentatives/Dev/templates/render_template.xml" beforeDir="false" />
+    <list default="true" id="c6b66465-5842-440a-b1f9-f8b9a30b0983" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dts_app/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dts_app/routes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dts_app/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dts-demo-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dts-demo-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Collection_Initiale/Chants_contre/Triomphe_Anarchie.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example_data/Chants_contre/Triomphe_Anarchie.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Collection_Initiale/Commune/Internationale.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example_data/Commune/Internationale.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Collection_Initiale/Commune/LeTempsdesCerises.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example_data/Commune/LeTempsdesCerises.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Collection_Initiale/Révolution_1789/Carmagnole.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example_data/1789_Révolution/Carmagnole.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Collection_Initiale/Révolution_1789/Marseillaise.txt" beforeDir="false" afterPath="$PROJECT_DIR$/example_data/1789_Révolution/Marseillaise.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Dev/Create_tsv/chansons.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Dev/Create_tsv/creatsv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Dev/DB/DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Dev/DB/InsertDB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Dev/DB/chants.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Dev/DB/requete_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/Dev/templates/render_template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/.idea/DTSongs.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/DB_SQLite/Create_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/DB_SQLite/Insert_user.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/DB_SQLite/chants.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/DB_SQLite/create_table_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/DB_SQLite/creation_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/DB_SQLite/insert_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/DB_SQLite/insert_content.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/Metadata/Chansons.tsv" beforeDir="false" afterPath="$PROJECT_DIR$/Chansons.tsv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/Metadata/create_tsv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/Routes_flask/routes.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/Templates/file_xml" beforeDir="false" afterPath="$PROJECT_DIR$/.flaskenv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/API/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/Collection_Initiale/1789_Révolution/Carmagnole.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/Collection_Initiale/1789_Révolution/Marseillaise.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/Collection_Initiale/Chants_contre/Triomphe_Anarchie.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/Collection_Initiale/Commune/Internationale.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/Collection_Initiale/Commune/LeTempsdesCerises.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/V1_test/review/DTSongs/Collection_Initiale/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dts_app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/.idea/dtsongs.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/CLI/CLI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/DB_SQLite/chants.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/DB_SQLite/create_table_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/DB_SQLite/insert_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/DB_SQLite/insert_content.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/DB_SQLite/requete_DB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/DB_SQLite/test_insert_lastrowid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/Metadata/Chansons.tsv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/Metadata/create_tsv.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/Routes_flask/app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/Routes_flask/templates/document.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/API/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dts_app/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/Collection_initiale/1789_Révolution/Carmagnole.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/Collection_initiale/1789_Révolution/Marseillaise.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/Collection_initiale/Chants_contre/Triomphe_Anarchie.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/Collection_initiale/Commune/Internationale.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/Collection_initiale/Commune/LeTempsdesCerises.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/Collection_initiale/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/dts_app/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/Documentation" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dtsongs/requirements.rtf" beforeDir="false" />
     </list>
-=======
-    <list default="true" id="be758fe4-a3ca-45ac-b572-024f792d93ff" name="Default Changelist" comment="" />
->>>>>>> review
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example_data/Commune/LeTempsdesCerises.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dts_app/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dts_app/script.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="26" selection-start-column="26" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dts_app/app.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dts_app/routes.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dts_app/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.flaskenv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="38" selection-start-column="38" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Chansons.tsv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="803" />
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/dts_app/models.py" />
+        <option value="$PROJECT_DIR$/run.py" />
+        <option value="$PROJECT_DIR$/.flaskenv" />
+        <option value="$PROJECT_DIR$/dts_app/app.py" />
+        <option value="$PROJECT_DIR$/dts_app/config.py" />
+        <option value="$PROJECT_DIR$/dts_app/script.py" />
+      </list>
+    </option>
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="2880" />
+    <option name="width" value="961" />
+    <option name="height" value="1055" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-<<<<<<< HEAD
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -54,6 +210,11 @@
               <item name="dts-demo-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="dts-demo-server" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="dts-demo-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dts-demo-server" type="462c0819:PsiDirectoryNode" />
+              <item name="dts_app" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -61,15 +222,16 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-=======
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
-    </panes>
-  </component>
-  <component name="PropertiesComponent">
->>>>>>> review
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -84,59 +246,147 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration>$USER_HOME$/.subversion</configuration>
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="583575b0-6d37-43d3-b80b-c4cd1304d317" name="Default Changelist" comment="" />
-      <created>1554135370973</created>
+      <changelist id="c6b66465-5842-440a-b1f9-f8b9a30b0983" name="Default Changelist" comment="" />
+      <created>1554961576790</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1554135370973</updated>
-=======
-      <changelist id="be758fe4-a3ca-45ac-b572-024f792d93ff" name="Default Changelist" comment="" />
-      <created>1553755970585</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1553755970585</updated>
->>>>>>> review
+      <updated>1554961576790</updated>
+      <workItem from="1554961577917" duration="2360000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2360000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="803" extended-state="0" />
+    <frame x="1919" y="0" width="1922" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
-<<<<<<< HEAD
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-=======
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24947146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24866879" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.3286638" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
->>>>>>> review
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-<<<<<<< HEAD
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-=======
->>>>>>> review
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/dtsongs/API/Metadata/Chansons.tsv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dtsongs/API/Metadata/create_tsv.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V1_test/Dev/Create_tsv/chansons.tsv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V1_test/Dev/Create_tsv/creatsv.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V1_test/Dev/DB/DB.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V1_test/Dev/DB/InsertDB.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V1_test/Dev/DB/requete_DB.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/V1_test/Dev/templates/render_template.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dtsongs/Documentation">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-581" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Chansons.tsv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example_data/Commune/LeTempsdesCerises.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="17" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dts_app/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="44" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.flaskenv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dts_app/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dts_app/routes.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dts_app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dts_app/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
