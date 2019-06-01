@@ -5,9 +5,15 @@ DTS-Demo-Server
 
 - `FLASK_DEBUG=True flask run` to run the API
 
+
 # Navigation example
 
-Load example by running `flask db load example_data.tsv` you can then navigate to
+Load example by running `flask db load example_data.tsv` you can then navigate to 
+collection/endpoint
+navigation/endpoint
+and
+document/endpoint
+
 
 This server supports all parameters from http://w3id.org/dts except the pagination ones. 
 1. http://127.0.0.1:5000/
