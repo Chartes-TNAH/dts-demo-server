@@ -8,3 +8,8 @@ https://www.wikidata.org/wiki/Q1043500	/1789_revolution	Carmagnole	./example_dat
 https://www.wikidata.org/wiki/Q41180	/1789_revolution	Marseillaise	./example_data/1789/Marseillaise.txt	Rouget de l'Isle	Rouget de l'Isle		1792
 https://www.wikidata.org/wiki/Q49617	/commune	Internationale	./example_data/Commune/Internationale.txt	Eugnène Pottier	Gustave Nadaud		1871
 https://www.wikidata.org/wiki/Q3227832	/chants_contre	Le Triomphe de l'Anarchie	./example_data/Chants_contre/Triomphe_Anarchie.txt	Charles d'Avray	Charles d'Avray		1901
+
+# fichier d'indexation de base des documents dans lequel se trouve les métadonnées organisées selon une ontology, et un dcterms creator
+# et un dcterms date.
+
+# peut-être est-ce une erreur mais nous avons remarqué qu'il y a deux mentions de dcterms creator
