@@ -156,15 +156,19 @@ def navigation_route():
         # DTS Specification : Si je donne un passage, je dois récupérer ces enfants.
         #                     Nous ne gérons pas les enfants
         passages = []
-
+# si on trouve un start et un end,
     elif request.args.get("start") and request.args.get("end"):
+        # on filtre les passages par ID et par ordre de passage entre "start" et "end".
         passages = Passage.query.filter(
             db.and_(
                 Passage.passage_collection == collection.collection_id,
                 Passage.passage_order.between(request.args.get("start"), request.args.get("end"))
             )
+            # on récupère tous les résultats.
         ).all()
+         # si on ne trouve pas de passage,
         if not passages:
+            # on retourne une erreur json.
             return json_error(title="Passage not found", message="This passage range was not found")
 
         # DTS Specification : Si je donne une range, je dois récupérer les enfants de la range
@@ -175,28 +179,39 @@ def navigation_route():
         passages = collection.passages
 
     if request.args.get("groupBy"):
+        # on récupère les groupe_by
         group_by = request.args.get("groupBy")
+        # si l'élément récupéré n'est pas uniquement composé de chiffres,
         if not group_by.isnumeric():
+            # on retourne une erreur json.
             return json_error(
                 title="Invalid groupBy value",
                 message="The groupBy value is not a numerical one",
                 code=400
             )
+        # si l'élément est un chiffre
         group_by = int(group_by)
+        # et s'il est égale à 0,
         if group_by == 0:
+            # on retourne une erreur json.
             return json_error(
                 title="Invalid groupBy value",
                 message="The groupBy value cannot be equal to 0",
                 code=400
             )
+        # pour chaque groupe dans passages,
         passages = grouper(n=group_by, iterable=passages)
+         # création d'une liste contenant un dictionnaire,
         passages = [
+            # la première clef est start et on y trouve le premier élément de grouped,
+            # la dernière clef est correspond au dernier élément de grouped.
             {"start": grouped[0].passage_order, "end": grouped[-1].passage_order}
             for grouped in passages
         ]
     else:
+        # on créé un dictionnaire passages qui a comme clef "ref" et comme valeur le passage_order.
         passages = [{"ref": passage.passage_order} for passage in passages]
-
+# Cette fonction retourne un document de type json contenant un certain nombre d'information.
     return json_ld(
         {
             "@context": {
@@ -212,31 +227,43 @@ def navigation_route():
         }
     )
 
-
+# Définition du endpoint collection, il retourne du json, il aggrège des documents par propriétés communes.
 @app.route("/collection")
 def collection_route():
+    # on récupère les collections par identifier.
     collection = Collection.get_by_identifier(request.args.get("id"))
-
+# s'il n'y a pas de collection et qu'il y a un id,
     if not collection and request.args.get("id"):
+        # on retourne un message d'erreur.
         return json_error(title="Collection not found",
                           message="This collection does not exist in our database.")
+    # s'il n'y a pas de collection,
     elif not collection:
+        # on crée la variable collection et on lui affecte le premier résultat de la
+        # requête Collection (filtrée par collection parent)
         collection = Collection.query.filter(Collection.collection_parent==None).first()
-
+# si on récupère "nav" et "children",
     if request.args.get("nav", "children") == "children":
+        # on créé la variable members qui contient les children de collection.
         members = collection.children
     else:
+        # si on ne trouve pas de "nav" et de "children", on place les parents de collection dans members.
         members = [collection.parent]
 
     dc = defaultdict(list)
     extended = defaultdict(list)
 
+ # pour chaque triple dans collection
     for triple in collection.triples:
+        # si le prédicat du triple commence par http://purl.org/dc/terms/
         if triple.triple_predicate.startswith("http://purl.org/dc/terms/"):
+            # on l'ajoute au dictionnaire dc.
             dc[triple.triple_predicate.replace("http://purl.org/dc/terms/", "dc:")].append(triple.triple_object)
         else:
+            # on l'ajoute au dictionnaire extended.
             extended[triple.triple_predicate].append(triple.triple_object)
-
+# création du dictionnaire data qui contient les informtions de contexte et
+    # les informations récupérer dans la base de données.
     data = {
         "@context": {
             "@vocab": "https://www.w3.org/ns/hydra/core#",
@@ -248,10 +275,11 @@ def collection_route():
         "totalItems": len(members),
         "title": collection.collection_title
     }
-
+# pour chaque élément dans members, on ajoute un clef member au dictionnaire data
     if len(members):
         data["member"] = [
             {
+                #on ajoute des éléments liés à la classe collection.
                 "@id": member.collection_identifier,
                 "title": member.collection_title,
                 "@type": member.collection_type,
@@ -265,19 +293,24 @@ def collection_route():
 
     if extended:
         data["dts:extended"] = extended
+         # si la collection a un type "Resource",
 
     if collection.collection_type == "Resource":
+        # on met à jour data aved les inforamtions des collections qu l'on place dans les éléments dts.
         data.update({
             "dts:passage": url_for("document_route", id=collection.collection_identifier),
             "dts:references": url_for("navigation_route", id=collection.collection_identifier),
             "dts:citeDepth": 1
         })
-
+# le endpoint collection retourne les données (data) au format json.
     return json_ld(data)
 
-
+# route vers l'acceuil de l'application
 @app.route("/")
+# Définition de l'entrée de l'application, on retourne un document json.
 def entry_point():
+    # la fonction retourne directement une réponse json
+    # contenant les liens vers les différents endpoints.
     return json_ld({
       "@context": "/dts/api/contexts/EntryPoint.jsonld",
       "@id": url_for("entry_point"),
@@ -287,11 +320,17 @@ def entry_point():
       "navigation": url_for("navigation_route")
     })
 
-
+# Définition des routes de l'application.
 @app.route("/<path:path>")
 def identifier_route(path):
+    #la route vers collection est définit par l'ajout d'un / avant le chemin
+    # lui même composé de l'identifier de la collection
     collection = Collection.get_by_identifier("/"+path)
+    # si on ne trouve pas de collection,
     if not collection:
+        # on retourne une erreur json. 
         return json_error(title="Collection not found",
                           message="This collection does not exist in our database.")
+    
+    # on retournr une redirection vers la route de collection.   
     return redirect(url_for("collection_route", id=collection.collection_identifier))
