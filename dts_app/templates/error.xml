@@ -1,0 +1,7 @@
+<error statusCode="{{code}}" xmlns="https://w3id.org/dts/api#">
+  <title>{{title}}</title>
+  <description>{{message}}</description>
+</error>
+
+<!-- architecture de la réponse xml en cas d'erreur qui affiche le statuscode 404, le titre de l'erreur et un
+message de description. Ce fichier est lié à la fonction <not_found_xml> dans routes.py -->

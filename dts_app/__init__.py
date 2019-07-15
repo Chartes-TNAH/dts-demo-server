@@ -1,0 +1,1 @@
+#méthode qui permet d'initialiser les différentes fonctions et de les appeler dans les fichiers concernés

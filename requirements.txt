@@ -1,0 +1,6 @@
+click==7.0
+flask==1.0.2
+flask-sqlalchemy==2.3.2
+python-dotenv==0.10.1
+
+# librairies à installer en tapant dans le terminal PyCharm "pip install <package_name>"

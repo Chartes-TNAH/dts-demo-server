@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:dts="https://w3id.org/dts/api#">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>{{collection.collection_title}}</title>
+             {% for author in collection.authors -%}
+                <author>{{author.triple_object}}</author>
+             {%- endfor %}
+         </titleStmt>
+      </fileDesc>
+   </teiHeader>
+   <dts:fragment>
+       <text>
+           <body>
+               {% for passage in passages -%}
+                <{{passage.passage_tag}} n="{{passage.passage_order}}">{{passage.passage_value}}</{{passage.passage_tag}}>
+               {%- endfor %}
+            </body>
+       </text>
+   </dts:fragment>
+</TEI>
+
+<!-- fichier xml qui permet de retourner le document en xml-tei de la couche document/endpoint
+il structure le texte en fonction des ref = lignes dans le document. Ces dernières sortent numérotées dans une
+balise n et sont récupérées automatiquement à partir de la classe passage et de l'élément passage_order de cette
+classe dans le fichier models.py
+le titre est récupéré dans la classe Collection (collection_title) toujours dans models.py
+l'auteur est récupéré dans la classe Triple (Triple_object) toujours dans models.py
+pour les boucles for cela vient de la fonction documents_route dans le document routes.py. C'est cette collection qui
+lance en cas de soucis le fichier error.xml -->

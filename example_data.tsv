@@ -1,0 +1,10 @@
+@id	@parent	@title	@content	http://purl.org/dc/terms/creator	http://purl.org/ontology/mo/interpreter	http://purl.org/dc/terms/creator	http://purl.org/dc/terms/date
+/collection_initiale		Collections de chants révolutionnaires					
+/commune	/collection_initiale	Chants de la commune					
+/1789_revolution	/collection_initiale	Chants de la révolution					
+/chants_contre	/collection_initiale	Chants Contre					
+https://www.wikidata.org/wiki/Q1340251	/commune	Le Temps des Cerises	./example_data/Commune/LeTempsdesCerises.txt	Jean-Baptiste Clément	Antoine  Renard et alii	Antoine  Renard et alii	1868
+https://www.wikidata.org/wiki/Q1043500	/1789_revolution	Carmagnole	./example_data/1789/Carmagnole.txt	anonyme	anonyme		1792
+https://www.wikidata.org/wiki/Q41180	/1789_revolution	Marseillaise	./example_data/1789/Marseillaise.txt	Rouget de l'Isle	Rouget de l'Isle		1792
+https://www.wikidata.org/wiki/Q49617	/commune	Internationale	./example_data/Commune/Internationale.txt	Eugnène Pottier	Gustave Nadaud		1871
+https://www.wikidata.org/wiki/Q3227832	/chants_contre	Le Triomphe de l'Anarchie	./example_data/Chants_contre/Triomphe_Anarchie.txt	Charles d'Avray	Charles d'Avray		1901
