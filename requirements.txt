@@ -1,5 +1,5 @@
 click==7.0
-flask==1.0.2
+flask==2.3.2
 flask-sqlalchemy==2.3.2
 python-dotenv==0.10.1
 
